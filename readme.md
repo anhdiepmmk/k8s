@@ -18,5 +18,15 @@ kubectl create deployment first-app --image=anhdiepmmk/kub-first-app
 kubectl expose deployment first-app --type=LoadBalancer --port=8080
 ```
 
+## 5. access our service
+```
+minikube service first-app
+```
+
+## 6. make our service HA
+```
+kubectl scale deployment/first-app --replicas=5
+```
+
 # II. Declarative
 ## 
