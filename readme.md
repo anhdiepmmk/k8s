@@ -28,5 +28,38 @@ minikube service first-app
 kubectl scale deployment/first-app --replicas=5
 ```
 
+## 7. update deployment
+> k8s just update image if the new image have diffrence tag
+```
+kubectl set image deployment/first-app kub-first-app=anhdiepmmk/kub-first-app:latest
+```
+
+## 8. view current update status
+```
+kubectl rollout status deployment/first-app
+```
+
+## 9. rollback deployment
+```
+kubectl rollout undo deployment/first-app
+kubectl rollout undo deployment/first-app --to-revision=1
+```
+
+## 10. rollout history
+```
+kubectl rollout history deployment/first-app
+kubectl rollout history deployment/first-app --revision=3
+```
+
+## 11. delete service
+```
+kubectl delete service first-app
+```
+
+## 12. delete deployment
+```
+kubectl delete deployment first-app
+```
+
 # II. Declarative
 ## 
