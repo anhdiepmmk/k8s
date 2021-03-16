@@ -8,8 +8,8 @@ build:
     context: apps/express
     sync:
       manual:
-        - src: '*.js'
-          dest: '/app'
+        - src: 'src/**/*'
+          dest: .
     docker:
       dockerfile: Dockerfile
 deploy:
