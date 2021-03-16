@@ -1,11 +1,11 @@
 apiVersion: skaffold/v2beta12
 kind: Config
 metadata:
-  name: express
+  name: infinity
 build:
   artifacts:
-  - image: anhdiepmmk/kub-first-app
-    context: apps/express
+  - image: dev.local/backend
+    context: apps/backend
     sync:
       manual:
         - src: 'src/**/*'
