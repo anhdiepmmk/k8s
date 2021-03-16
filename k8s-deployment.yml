@@ -17,5 +17,11 @@ spec:
       containers:
         - name: second-node
           image: dev.local/backend
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
 # http://telepresence.io
 # https://dev.to/dsalahutdinov/kubernetes-native-development-sync-files-between-a-local-machine-and-remote-pod-2i0i
