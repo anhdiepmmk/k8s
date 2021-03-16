@@ -1,11 +1,15 @@
 apiVersion: skaffold/v2beta12
 kind: Config
 metadata:
-  name: k-s
+  name: express
 build:
   artifacts:
   - image: anhdiepmmk/kub-first-app
     context: apps/express
+    sync:
+      manual:
+        - src: '*.js'
+          dest: '/app'
     docker:
       dockerfile: Dockerfile
 deploy:
