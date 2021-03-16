@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: k-s
+build:
+  artifacts:
+  - image: anhdiepmmk/kub-first-app
+    context: apps/express
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yml
+    - service.yml

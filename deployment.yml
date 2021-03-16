@@ -17,17 +17,5 @@ spec:
       containers:
         - name: second-node
           image: anhdiepmmk/kub-first-app:latest
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: second-app-service
-spec:
-  type: NodePort
-  ports:
-    - port: 80
-      targetPort: 8080
-      protocol: TCP
-      nodePort: 31000
-  selector:
-    app: second-app
+# http://telepresence.io
+# https://dev.to/dsalahutdinov/kubernetes-native-development-sync-files-between-a-local-machine-and-remote-pod-2i0i
