@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
         - name: story
+          env:
+            - name: STORY_FOLDER
+              value: "love"
           image: anhdiepmmk/kub-data-demo:v1
           volumeMounts:
-            - mountPath: /app/story
+            - mountPath: /app/love
               name: story-volume
       volumes:
         # - name: story-volume
