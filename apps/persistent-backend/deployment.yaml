@@ -14,12 +14,10 @@ spec:
     spec:
       containers:
         - name: story
-          # https://medium.com/avmconsulting-blog/how-to-perform-health-checks-in-kubernetes-k8s-a4e5300b1f9d
           livenessProbe:
-            exec:
-              command:
-              - curl
-              - localhost:3000/health
+            httpGet:
+              path: /health
+              port: 3000
             initialDelaySeconds: 3
             periodSeconds: 3
           env:
