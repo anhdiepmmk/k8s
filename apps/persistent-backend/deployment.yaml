@@ -19,5 +19,9 @@ spec:
             - mountPath: /app/story
               name: story-volume
       volumes:
+        # - name: story-volume
+        #   emptyDir: {}
         - name: story-volume
-          emptyDir: {}
+          hostPath:
+            path: /data
+            type: DirectoryOrCreate
