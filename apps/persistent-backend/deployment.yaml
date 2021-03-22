@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: story-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: story
@@ -14,10 +14,21 @@ spec:
     spec:
       containers:
         - name: story
+          # https://medium.com/avmconsulting-blog/how-to-perform-health-checks-in-kubernetes-k8s-a4e5300b1f9d
+          livenessProbe:
+            exec:
+              command:
+              - curl
+              - localhost:3000/health
+            initialDelaySeconds: 3
+            periodSeconds: 3
           env:
             - name: STORY_FOLDER
-              value: "love"
-          image: anhdiepmmk/kub-data-demo:v1
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
+          image: anhdiepmmk/kub-data-demo:v3
           volumeMounts:
             - mountPath: /app/love
               name: story-volume
