@@ -9,14 +9,14 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8000
+      targetPort: 3000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tasks-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tasks
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: tasks-api
-          image: anhdiepmmk/kub-dep-tasks:latest
+          image: anhdiepmmk/kub-dep-tasks:v1
           env:
             - name: MONGODB_CONNECTION_URI
               value: 'mongodb+srv://test:Gfm9C8WDC9HEvWWl@cluster0.tkdbb.mongodb.net/users?retryWrites=true&w=majority'
