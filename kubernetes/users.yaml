@@ -30,6 +30,6 @@ spec:
           image: anhdiepmmk/kub-dep-users:latest
           env:
             - name: MONGODB_CONNECTION_URI
-              value: 'mongodb+srv://goals:UpTgXqtYF1FiMMM2@cluster0.tkdbb.mongodb.net/goals?retryWrites=true&w=majority'
+              value: 'mongodb+srv://test:Gfm9C8WDC9HEvWWl@cluster0.tkdbb.mongodb.net/users?retryWrites=true&w=majority'
             - name: AUTH_API_ADDRESSS
               value: 'auth-service.default:3000'
